@@ -20,7 +20,7 @@ public class practice  extends JFrame{
 		setLayout(new GridLayout(x, y));
 		
 		for(int i = 0; i < x; i++) {
-			for(int j = 0;j < y ; j++) {
+			for(int j = 0;j < y; j++) {
 				compruebaUnivers[i][j] = rand.nextInt(60)<30;
 				JButton temp = new JButton();
 				if(compruebaUnivers[i][j]) {
@@ -31,14 +31,10 @@ public class practice  extends JFrame{
 				btnArr[i][j] = temp;
 				add(temp);
 			}
-			
 		}
-		
 		setVisible(true);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		
+		setDefaultCloseOperation(EXIT_ON_CLOSE);	
 	}
-	
 	public static void main(String[] args) {
 		new practice();
 	}
