@@ -10,12 +10,12 @@ ejecución sin IDE.
 Para ejecutar el programa se tiene que compilar el codigo , ya que esta escrito en java se hara con un:
 javac 'nombre'.java.
 y para ejecutarlo con un java 'nombre'.
-```
+``
 diego.mendez@a25pc0:~/TheGameOfLife$ ls
 practice.java  README.rst
 diego.mendez@a25pc0:~/TheGameOfLife$ javac practice.java
 diego.mendez@a25pc0:~/TheGameOfLife$ java practice.
-```
+``
 **Resumen de lo realizado hasta el dia de entrega**
 --
 Las primeras semanas se ha realizado el programa de manera RAW.
