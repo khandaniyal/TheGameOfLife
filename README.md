@@ -14,12 +14,13 @@ To run the program you have to compile the code, as it is written in java with a
 javac 'name'.java.
 
 and to run it with a java 'name'.
-
-diego.mendez@a25pc0:~/TheGameOfLife$ ls
-practice.java  README.rst
-
+***************************************
+Compilation:
+***************************************
 diego.mendez@a25pc0:~/TheGameOfLife$ javac practice.java
-
+***************************************
+Execution:
+***************************************
 diego.mendez@a25pc0:~/TheGameOfLife$ java practice.
 
 **Summary of what was done until the day of delivery**
