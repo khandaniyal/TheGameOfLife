@@ -1,16 +1,19 @@
 
-**PROYECTO EN GRUPO DONDE DESARROLLAREMOS EL JUEGO THE GAME OF LIFE DE CONWAY**
+**GROUP PROJECT WHERE WE WILL DEVELOP THE GAME OF LIFE GAME OF CONWAY**
 --
 
-**Ejecución The Game Of Life:**
+**Execution The Game Of Life:**
 --
 
-Se puede ejecutar en un IDE.
+It can be run in an IDE.
 
-ejecución sin IDE.
-Para ejecutar el programa se tiene que compilar el codigo , ya que esta escrito en java se hara con un:
-javac 'nombre'.java.
-y para ejecutarlo con un java 'nombre'.
+execution without IDE.
+
+To run the program you have to compile the code, as it is written in java with  the command :
+
+javac 'name'.java.
+
+and to run it with the command : java 'name'.
 
 diego.mendez@a25pc0:~/TheGameOfLife$ ls
 practice.java  README.rst
@@ -19,10 +22,9 @@ diego.mendez@a25pc0:~/TheGameOfLife$ javac practice.java
 
 diego.mendez@a25pc0:~/TheGameOfLife$ java practice.
 
-**Resumen de lo realizado hasta el dia de entrega**
+**Summary of what was done until the day of delivery**
 --
-
-Las primeras semanas se ha realizado el programa de manera RAW.
+Las primeras semanas se ha realizado el programa de manera RAW(raw type).
 La idea era que cada uno realizara el refactoring de el codigo utilizado las primeras semanas y despues juntarlo  lo mejor de cada uno e implementarlo en un unico proyecto.
 
 **Descripcion entrega**
@@ -38,22 +40,23 @@ The technologies used have been the IDE Eclipse and IntelliJ, the code has been 
 
 Nuestro objetivo es terminar el product backlog y sus prioridades 1  y despues ir implementando los pedidos restantes.
 
-**Quins hem assolit i quins han quedat pendents**
+**Which we have achieved and which have remained pending**
 --
 
 Todas las prioridades numero 1 se han resuelto y algunas prioridades 5.
 
-**Quines dificultats hem trobat i com les hem solucionat**
+**What difficulties we have encountered and how we have solved them**
 --
 
-Se han encontrado dificultades para añadir las celulas arrastrandolas y al mismo tiempo quitarlas, se ha solucionado con ayuda de google.
+Se han encotrado varias dificultades a la hora de interactuar con el Jframe a la hora de tener interacción con la pantalla y el añadir los botones de juego pero se ha solucionado con ayuda de los profesores y en foros,stackoverflow,javahispano,etc.
 
-**Com ens hem organitzat a nivell intern**
+
+**How we have organized ourselves internally**
 --
 
 Con ayuda del trello hemos asignado a cada integrante un rol.
 
-**Enllaç al Board utilitzat per gestionar les tasques entre els components de l'equip**
+**Link to the Board used to manage tasks between team**
 --
 
 [https://trello.com/b/teyv0eQl/the-game-of-life](https://)
