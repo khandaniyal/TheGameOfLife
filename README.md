@@ -9,11 +9,11 @@ It can be run in an IDE.
 
 execution without IDE.
 
-To run the program you have to compile the code, as it is written in java with  the command :
+To run the program you have to compile the code, as it is written in java with a:
 
 javac 'name'.java.
 
-and to run it with the command : java 'name'.
+and to run it with a java 'name'.
 
 diego.mendez@a25pc0:~/TheGameOfLife$ ls
 practice.java  README.rst
@@ -54,7 +54,7 @@ Se han encotrado varias dificultades a la hora de interactuar con el Jframe a la
 **How we have organized ourselves internally**
 --
 
-Con ayuda del trello hemos asignado a cada integrante un rol.
+With the help of the [trello](https:/trello.com/es/) we have assigned each member a role.
 
 **Link to the Board used to manage tasks between team**
 --
