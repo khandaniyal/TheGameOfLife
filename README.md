@@ -39,7 +39,7 @@ The technologies used have been the IDE Eclipse and IntelliJ, the code has been 
 **What goals we had for delivery. Product backlog items**
 --
 
-Nuestro objetivo es terminar el product backlog y sus prioridades 1  y despues ir implementando los pedidos restantes.
+Our goal is to finish the product backlog and its priorities 1 and then implement the remaining orders.
 
 **Which we have achieved and which have remained pending**
 --
