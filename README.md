@@ -7,7 +7,7 @@
 
 - It can be run in an IDE.
 - execution without IDE.
-- To run the program in a terminal you have to compile the code, as it is written in the folowwing commands:
+- To run the program in a terminal you have to compile the code, as it is written in the folowing commands:
 
 
 Compilation:
