@@ -156,13 +156,16 @@ public class GameOfLife extends JFrame{
             for(int j = 0; j < btnSize; j++) {
                 int count= neighbours(i, j);
                 if(logicUnivers[i][j]) {
+                /*
                     if(count < 2) { // in this case the cell will die
                         tempLogicUnivers[i][j] = false;
                     }
-                /*    if(count == 3 ||count == 2) { // in this case it will create a new cell
+
+                 */
+                    if(count == 3 ||count == 2) { // in this case it will create a new cell
                         tempLogicUnivers[i][j] = true;
                     }
-                    if(count > 3) { // die
+                /*    if(count > 3) { // die
                         tempLogicUnivers[i][j] = false;
                     }
 
