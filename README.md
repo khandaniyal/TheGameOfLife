@@ -40,8 +40,6 @@ All of the **``priorities 1``** and one **``priority 5``** but we will be adding
 **What difficulties we have encountered and how we have solved them**
 --
 
-Se han encotrado varias dificultades a la hora de interactuar con el Jframe a la hora de tener interacción con la pantalla y el añadir los botones de juego pero se ha solucionado con ayuda de los profesores y en foros,stackoverflow,javahispano,etc.
-
 We have encountered some issues when interacting with **``Jswing``** and we still have but with the help from our group mates we have been trying to solve them. We have been using dev webistes such as **``StackOverflow``** and many more. 
 
 
