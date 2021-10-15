@@ -1,11 +1,7 @@
-/*
- *
- *
- *
- * Conway's Game Of Life
- *
- *
- *
+/* Conway's Game Of Life
+ * How to play:
+ * Right mouse click to draw, left mouse click to erase.
+ * You can draw amd erase while the game is running
  *
  */
 
