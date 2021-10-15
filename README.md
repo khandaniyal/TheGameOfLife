@@ -1,6 +1,11 @@
 
 **CONWAY's GAME OF LIFE DOCUMENTATION**
 --
+**HOW TO PLAY**
+- Left mouse click to draw.
+- Right mouse click to erase.
+- It is possible to draw and erase while the game is playing.
+- HAVE FUN!
 
 **Execution The Game Of Life:**
 --
