@@ -1,3 +1,13 @@
+/*
+ *
+ *
+ *
+ * Conway's Game Of Life
+ *
+ *
+ *
+ *
+ */
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -150,7 +160,6 @@ public class GameOfLife extends JFrame{
 
         return count;
     }
-    
     //Bunch of rules to tell which cell will live, die or will create a new cell.
     public boolean[][] checkNeighbours(boolean[][] tempLogicUnivers){
         for(int i = 0; i < btnSize; i++) {
