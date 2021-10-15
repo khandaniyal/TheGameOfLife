@@ -46,9 +46,9 @@ We have encountered some issues when interacting with **``Jswing``** and we stil
 **How we have organized ourselves internally**
 --
 
-With the help of **``Trello``** we have been assigning each member a role. Not to mention some of us had some agreements or commitments to do regarding our interaction between oursleves. Somone said to improve his social interacion/skills and try to talk with different members of the team which I am quite suprised beacuse he actually did, so props to him.
+With the help of **``Trello``** we have been assigning each member a role. Not to mention some of us had some agreements or commitments to do regarding our interaction towards our group members. Somone said to improve his social interacion/skills and try to talk with different members of the team which I am quite suprised beacuse he actually did, so props to him.
 
-**Link to our Board**
+**Link to our Board.**
 --
 
 Our [board](https://trello.com/b/teyv0eQl/the-game-of-life).
