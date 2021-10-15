@@ -37,6 +37,7 @@ public class GameOfLife extends JFrame{
 
 		//Buttons
 		JPanel buttons = new JPanel();
+		buttons.setBackground(Color.BLACK);
 		buttons.setLayout(new GridLayout(0,3));
 		buttons.setBounds(150,510,200,50);
 
@@ -51,7 +52,6 @@ public class GameOfLife extends JFrame{
 		//Actions listeners when the folowing button are pressed.
 		//Starts the timer
 		start.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				timer.start();
@@ -60,7 +60,6 @@ public class GameOfLife extends JFrame{
 		});
 		//Stops the timer
 		stop.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				timer.stop();
@@ -189,7 +188,7 @@ public class GameOfLife extends JFrame{
 	}
 	//creates the panel
 	public void getPanel(){
-		setPreferredSize(new Dimension(600, 600));
+		setPreferredSize(new Dimension(517, 600));
 		setLayout(null);
 		pack();
 		univers = new JPanel();
