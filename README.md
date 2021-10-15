@@ -13,8 +13,7 @@
 Compilation:
 
 ```
-diego.mendez@a25pc0:~/TheGameOfLife$ javac practice.java
-diego.mendez@a25pc0:~/TheGameOfLife$ java practice.
+diego.mendez@a25pc0:~/TheGameOfLife$ javac GameOfLife.java && java GameOfLife
 ```
 
 **Summary and description of what was done until the day of delivery.**
