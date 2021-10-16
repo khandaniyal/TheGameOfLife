@@ -83,6 +83,7 @@ public class GameOfLife extends JFrame{
                         if(logicUnivers[i][j]){
                             cells[i][j].setBackground(Color.BLACK);
                         }
+                        logicUnivers[i][j] = false;
                     }
                 }
                 //cells = resetButtons(btnSize, btnSize);
