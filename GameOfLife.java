@@ -59,15 +59,16 @@ public class GameOfLife extends JFrame{
         JButton clear = new JButton("Clear");
         buttons.add(clear);
         
-        JButton morems = new JButton("+");
-        buttons.add(morems);
+        JButton lessms = new JButton("-");
+        buttons.add(lessms);
         
         JTextField msnow = new JTextField(this.ms);
         msnow.setText(this.ms + "");
         buttons.add(msnow);
         
-        JButton lessms = new JButton("-");
-        buttons.add(lessms);
+        JButton morems = new JButton("+");
+        buttons.add(morems);
+        
         //Actions listeners when the folowing button are pressed.
         //Starts the timer
         start.addActionListener(e->timer.start());
