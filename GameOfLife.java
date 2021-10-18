@@ -20,6 +20,7 @@ public class GameOfLife extends JFrame{
     private Random rnd=new Random();
     private int count = 0;
     private JPanel univers;
+    private int ms = 200;
 
     //Raw constructor
     public GameOfLife(int btnSize) {
@@ -27,6 +28,7 @@ public class GameOfLife extends JFrame{
         this.logicUnivers = logicUnivers;
         this.cells = cells;
         this.btnSize = btnSize;
+        this.ms = ms;
         //Calls the function which will create the panel
         getPanel();
         logicUnivers = new boolean[btnSize][btnSize];
@@ -34,7 +36,7 @@ public class GameOfLife extends JFrame{
         //Will print the board on the panel
         getBoard();
         //A class that fires one or more ActionEvents at specified intervals in this case we want our cells to live, die or create new cells.
-        Timer timer = new Timer(100,new ActionListener() {
+        Timer timer = new Timer(ms,new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 boolean[][] tempUnivers = new boolean[btnSize][btnSize];
@@ -56,39 +58,31 @@ public class GameOfLife extends JFrame{
 
         JButton clear = new JButton("Clear");
         buttons.add(clear);
+        
+        JButton morems = new JButton("+");
+        buttons.add(morems);
+        
+        JTextField msnow = new JTextField(this.ms);
+        msnow.setText(this.ms + "");
+        buttons.add(msnow);
+        
+        JButton lessms = new JButton("-");
+        buttons.add(lessms);
         //Actions listeners when the folowing button are pressed.
         //Starts the timer
-        start.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                timer.start();
-            }
+        start.addActionListener(e->timer.start());
 
-        });
         //Stops the timer
-        stop.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                timer.stop();
-            }
-
-        });
+        stop.addActionListener(e->timer.stop());
+        
         //Clears the buttons which are painted
-        clear.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                timer.stop();
-                for(int i = 0; i < btnSize ; i++){
-                    for(int j = 0; j < btnSize ; j++){
-                        if(logicUnivers[i][j]){
-                            cells[i][j].setBackground(Color.BLACK);
-                        }
-                        logicUnivers[i][j] = false;
-                    }
-                }
-                //cells = resetButtons(btnSize, btnSize);
-            }
-        });
+        clear.addActionListener(e->functionclear(timer));
+      //speed up the timer
+        morems.addActionListener(e->speedupms(msnow, ms));
+      //the timer now
+        msnow.addActionListener(e->rightnowms(msnow));
+      //low speed the timer
+        lessms.addActionListener(e->lowspeedms(msnow, ms));
         //A listener that wait when we interact with the mouse
         MouseListener mouseListener = new MouseListener(){
             @Override
@@ -226,5 +220,33 @@ public class GameOfLife extends JFrame{
                 cells[x][y]=btn;
             }
         }
+    }
+    public void functionclear(Timer timer){
+    	timer.stop();
+        for(int i = 0; i < btnSize ; i++){
+            for(int j = 0; j < btnSize ; j++){
+                if(logicUnivers[i][j]){
+                    cells[i][j].setBackground(Color.BLACK);
+                }
+                logicUnivers[i][j] = false;
+            }
+        }
+    }
+    public void speedupms(JTextField msnow, int ms){
+    	this.ms=ms+50;
+    	msnow.setText(this.ms + "");
+    }
+    public void rightnowms(JTextField msnow){
+    	String contenido = msnow.getText();
+    	msnow.setText(contenido);
+    	this.ms = Integer.parseInt(contenido);
+    }
+    public void lowspeedms(JTextField msnow, int ms){
+    	this.ms=ms-50;
+    	if (this.ms <= 0) {
+    		this.ms = 0;
+    	}
+    	msnow.setText(this.ms + "");
+
     }
 }
