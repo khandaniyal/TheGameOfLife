@@ -3,16 +3,32 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class login extends JPanel{
 	//Attributes
+	private JFrame frame;
+	float xCenter;
+	float yCenter;
 	private String name;
 	private String password;
-	private JButton signIn = new JButton();
+	private JButton signInBtn = new JButton("Sign in");
+	private JTextField userNameTf = new JTextField();
+	
+	
+	
 	//Builder
 	public login(JFrame frame){
-		signIn.setBounds(500,frame.getHeight()/2 , 150, 75);//x,y,w,h
-		frame.add(signIn);
+		this.frame = frame;
+		xCenter = frame.getWidth()/2;
+		yCenter = frame.getHeight()/2;
+		signInBtn.setSize(100, 50);
+		signInBtn.setBounds((frame.getWidth()/2)-(signInBtn.getWidth()/2)
+				,((frame.getHeight()/4)*3)-(signInBtn.getHeight()/2) 
+				, 100, 50);
+		//userNameTf.setBounds(x, y, width, height); Me he quedado aquí
+		frame.add(signInBtn);
+		frame.add(userNameTf);
 	}
 	
 	
