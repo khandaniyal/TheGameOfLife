@@ -8,12 +8,13 @@ import javax.swing.JTextField;
 public class login extends JPanel{
 	//Attributes
 	private JFrame frame;
-	float xCenter;
-	float yCenter;
+	int xCenter;
+	int yCenter;
 	private String name;
 	private String password;
 	private JButton signInBtn = new JButton("Sign in");
-	private JTextField userNameTf = new JTextField();
+	private JTextField nameBox = new JTextField();
+	private JTextField passwordBox = new JTextField();
 	
 	
 	
@@ -22,13 +23,18 @@ public class login extends JPanel{
 		this.frame = frame;
 		xCenter = frame.getWidth()/2;
 		yCenter = frame.getHeight()/2;
-		signInBtn.setSize(100, 50);
-		signInBtn.setBounds((frame.getWidth()/2)-(signInBtn.getWidth()/2)
-				,((frame.getHeight()/4)*3)-(signInBtn.getHeight()/2) 
+		nameBox.setBounds(xCenter-(150/2),200,150,25);
+		
+		passwordBox.setBounds(xCenter-(150/2),250,150,25);
+		signInBtn.setBounds(xCenter-50,350
 				, 100, 50);
+		signInBtn.setBounds(xCenter-50,350
+				, 100, 50);
+		
 		//userNameTf.setBounds(x, y, width, height); Me he quedado aquí
 		frame.add(signInBtn);
-		frame.add(userNameTf);
+		frame.add(nameBox);
+		frame.add(passwordBox);
 	}
 	
 	
