@@ -8,6 +8,8 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Random;
@@ -44,11 +46,32 @@ public class GameOfLife extends JFrame{
             }
         });
 
+        this.getRootPane().addComponentListener(new ComponentListener() {
+			@Override
+			public void componentHidden(ComponentEvent arg0) {
+			}
+
+			@Override
+			public void componentMoved(ComponentEvent arg0) {				
+			}
+
+			@Override
+			public void componentResized(ComponentEvent arg0) {
+				//resize
+				System.out.println("moe");
+			}
+
+			@Override
+			public void componentShown(ComponentEvent arg0) {				
+			}
+        });
+        
+        
         //Buttons
         JPanel buttons = new JPanel();
         buttons.setBackground(Color.BLACK);
         buttons.setLayout(new GridLayout(0,3));
-        buttons.setBounds(150,510,220,50);
+        //buttons.setBounds(150,510,220,50);
 
         JButton start = new JButton("Start");
         buttons.add(start);
@@ -79,11 +102,11 @@ public class GameOfLife extends JFrame{
         //Clears the buttons which are painted
         clear.addActionListener(e->functionclear(timer));
       //speed up the timer
-        morems.addActionListener(e->speedupms(msnow, ms));
+        morems.addActionListener(e->speedupms(timer, msnow, ms));
       //the timer now
-        msnow.addActionListener(e->rightnowms(msnow));
+        msnow.addActionListener(e->rightnowms(timer, msnow));
       //low speed the timer
-        lessms.addActionListener(e->lowspeedms(msnow, ms));
+        lessms.addActionListener(e->lowspeedms(timer, msnow, ms));
         //A listener that wait when we interact with the mouse
         MouseListener mouseListener = new MouseListener(){
             @Override
@@ -119,6 +142,9 @@ public class GameOfLife extends JFrame{
             }
 
         };
+        
+       
+
         //Call the mouse listener when we are in the grid and pressing any button.
         for(int i = 0; i < btnSize;i++) {
             for(int j = 0; j < btnSize; j++) {
@@ -127,7 +153,7 @@ public class GameOfLife extends JFrame{
         }
         //Add the following components on the panel
         add(univers, BorderLayout.CENTER);
-        add(buttons);
+        add(buttons, BorderLayout.SOUTH);
         setLocationRelativeTo(null);
         setVisible(true);
         pack();
@@ -153,6 +179,9 @@ public class GameOfLife extends JFrame{
 
         return count;
     }
+    
+    
+    
     //Bunch of rules to tell which cell will live, die or will create a new cell.
     public boolean[][] checkNeighbours(boolean[][] tempLogicUnivers){
         for(int i = 0; i < btnSize; i++) {
@@ -198,11 +227,11 @@ public class GameOfLife extends JFrame{
     }
     //creates the panel
     public void getPanel(){
-        setPreferredSize(new Dimension(515, 600));
-        setLayout(null);
+        setPreferredSize(new Dimension(510, 600));
+        setLayout(new BorderLayout());
         //pack();
         univers = new JPanel();
-        univers.setBounds(0,0,500,500);
+        //univers.setBounds(0,0,500,500);
         univers.setLayout(new GridLayout(btnSize, btnSize));
     }
     //prints or shows the current board in the panel
@@ -233,21 +262,25 @@ public class GameOfLife extends JFrame{
             }
         }
     }
-    public void speedupms(JTextField msnow, int ms){
+    public void speedupms(Timer timer, JTextField msnow, int ms){
     	this.ms=ms+50;
     	msnow.setText(this.ms + "");
+    	timer.setDelay(ms);
+
     }
-    public void rightnowms(JTextField msnow){
+    public void rightnowms(Timer timer, JTextField msnow){
     	String contenido = msnow.getText();
     	msnow.setText(contenido);
     	this.ms = Integer.parseInt(contenido);
+    	timer.setDelay(ms);
+
     }
-    public void lowspeedms(JTextField msnow, int ms){
+    public void lowspeedms(Timer timer, JTextField msnow, int ms){
     	this.ms=ms-50;
     	if (this.ms <= 0) {
     		this.ms = 0;
     	}
     	msnow.setText(this.ms + "");
-
+    	timer.setDelay(ms);
     }
 }
