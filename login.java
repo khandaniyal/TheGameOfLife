@@ -5,9 +5,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class login extends JPanel{
+public class login extends JFrame{
 	//Attributes
-	private JFrame frame;
+	private JFrame frame = new JFrame("Login");
+	private JPanel fondoFrame = new JPanel();
 	private JPanel centralPanel = new JPanel();
 	int xCenter;
 	int yCenter;
@@ -20,18 +21,25 @@ public class login extends JPanel{
 	
 	
 	//Builder
-	public login(JFrame frame){
-		this.frame = frame;
+	public login(){
+		frame.setSize(1500,800);
 		xCenter = frame.getWidth()/2;
 		yCenter = frame.getHeight()/2;
-		System.out.print(yCenter-150);
+		//System.out.print(yCenter-150);
+		frame.add(fondoFrame);
+		frame.setVisible(true);
+		frame.add(centralPanel);
+		
 		centralPanel.setBounds(xCenter-(600/2),yCenter-(300/2)
 				,600,300);
-		centralPanel.setBackground(Color.decode("#ffa424"));
-		nameBox.setBounds(200,100,500,400);
-		frame.add(centralPanel);
 		centralPanel.add(nameBox);
-		frame.add(centralPanel.add(nameBox));
+		centralPanel.setBackground(Color.decode("#ffa424"));
+		
+		centralPanel.add(nameBox);
+		nameBox.setBounds(0,0,500,400);
+		centralPanel.setVisible(true);
+		//centralPanel.add(nameBox);
+		//frame.add(centralPanel.add(nameBox));
 		
 		
 		
@@ -56,15 +64,8 @@ public class login extends JPanel{
 	
 	//
 	public static void main(String[] args) {
-		JFrame jframe = new JFrame("Login");
-		jframe.setSize(1500,800);
-		login login1 = new login(jframe);
-		//x,y
-		//login1.setBounds(40,80,200,200);
-		login1.setBackground(Color.decode("#252440"));
-		login1.setVisible(true);
-		jframe.add(login1);
-		jframe.setVisible(true);
+		login jframe = new login();
+		
 		
 	}
 	
