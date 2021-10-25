@@ -265,14 +265,14 @@ public class GameOfLife extends JFrame{
     public void speedupms(Timer timer, JTextField msnow, int ms){
     	this.ms=ms+50;
     	msnow.setText(this.ms + "");
-    	timer.setDelay(ms);
+    	timer.setDelay(this.ms);
 
     }
     public void rightnowms(Timer timer, JTextField msnow){
     	String contenido = msnow.getText();
     	msnow.setText(contenido);
     	this.ms = Integer.parseInt(contenido);
-    	timer.setDelay(ms);
+    	timer.setDelay(this.ms);
 
     }
     public void lowspeedms(Timer timer, JTextField msnow, int ms){
@@ -281,6 +281,6 @@ public class GameOfLife extends JFrame{
     		this.ms = 0;
     	}
     	msnow.setText(this.ms + "");
-    	timer.setDelay(ms);
+    	timer.setDelay(this.ms);
     }
 }
