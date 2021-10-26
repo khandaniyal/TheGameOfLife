@@ -4,14 +4,16 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.BoxLayout;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 
 public class login extends JFrame{
 	//Attributes
 	private JFrame frame = new JFrame("Login");
-	private JPanel fondoFrame = new JPanel();
-	private JPanel centralPanel = new JPanel();
-	int xCenter;
-	int yCenter;
+	private JPanel panel0 = new JPanel();
+	private JPanel panel1 = new JPanel();
+	private JPanel panel2 = new JPanel();
 	private String name;
 	private String password;
 	private JButton signInBtn = new JButton("Sign in");
@@ -20,42 +22,33 @@ public class login extends JFrame{
 	
 	
 	
+	
 	//Builder
 	public login(){
-		frame.setSize(1500,800);
-		xCenter = frame.getWidth()/2;
-		yCenter = frame.getHeight()/2;
-		//System.out.print(yCenter-150);
-		frame.add(fondoFrame);
+		frame.setSize(1200-75,700-150);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(new BorderLayout(0, 0));
+		frame.getContentPane().add(panel0);
+		panel0.setBackground(Color.decode("#252440"));
+
+		panel0.setLayout(null);
+		
+		panel1.setBounds(800, 0, 400, 700-150);
+		panel0.add(panel1);
+		panel1.setBackground(Color.decode("#2c2c2c"));//ffa424
+		panel1.setLayout(null);
+		
+		nameBox.setBounds(100, 160, 200, 20);
+		passwordBox.setBounds(100,262,200,20);
+		signInBtn.setBounds(100,360,100,60);
+		
+		panel1.add(nameBox);
+		panel1.add(passwordBox);
+		panel1.add(signInBtn);
+	
 		frame.setVisible(true);
-		frame.add(centralPanel);
 		
-		centralPanel.setBounds(xCenter-(600/2),yCenter-(300/2)
-				,600,300);
-		centralPanel.add(nameBox);
-		centralPanel.setBackground(Color.decode("#ffa424"));
-		
-		centralPanel.add(nameBox);
-		nameBox.setBounds(0,0,500,400);
-		centralPanel.setVisible(true);
-		//centralPanel.add(nameBox);
-		//frame.add(centralPanel.add(nameBox));
-		
-		
-		
-		//nameBox.setBounds(xCenter-(150/2),200,150,25);
-		/*
-		passwordBox.setBounds(xCenter-(150/2),250,150,25);
-		signInBtn.setBounds(xCenter-50,350
-				, 100, 50);
-		signInBtn.setBounds(xCenter-50,350
-				, 100, 50);
-		
-		//userNameTf.setBounds(x, y, width, height); Me he quedado aquí
-		frame.add(signInBtn);
-		frame.add(nameBox);
-		frame.add(passwordBox);
-	*/
+	
 	}
 	public void buidSignUpPanel(JPanel panel) {
 		
@@ -68,5 +61,4 @@ public class login extends JFrame{
 		
 		
 	}
-	
 }
