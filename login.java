@@ -35,20 +35,22 @@ public class login extends JFrame{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
 		frame.getContentPane().add(panel0);
-		panel0.setBackground(Color.decode("#252440"));
+		panel0.setBackground(Color.decode("#ffa424"));//#252440   
 
 		panel0.setLayout(null);
 
 		//panel1.setBounds(810-75, 0, 400, 700-150);
-		panel1.setBounds(x*70/100, 0, 400, 700-150);
+		panel1.setBounds(percentage(70,x), 0, percentage(30,x), y);
 		panel0.add(panel1);
-		panel1.setBackground(Color.decode("#2c2c2c"));//ffa424
+		panel1.setBackground(Color.decode("#2c2c2c"));//ffa424  #2c2c2c
 		panel1.setLayout(null);
-
-		nameBox.setBounds(100, 160, 200, 20);
-		passwordBox.setBounds(100,262,200,20);
-		signInBtn.setBounds(100,360,100,60);
-
+		
+		nameBox.setBounds(percentage(25,panel1.getWidth()), 160, percentage(50,panel1.getWidth()), 20);
+		passwordBox.setBounds(percentage(25,panel1.getWidth()), 260, percentage(50,panel1.getWidth()), 20);
+		signInBtn.setBounds(percentage(35,panel1.getWidth()),360,percentage(30,panel1.getWidth()),50);
+		
+		
+		
 		panel1.add(nameBox);
 		panel1.add(passwordBox);
 		panel1.add(signInBtn);
@@ -58,11 +60,11 @@ public class login extends JFrame{
 
 	}
 	public void buidSignUpPanel(JPanel panel) {
-
+		
 	}
 	//Returns the correspondent percentage of a number
-	public float percentage(float percentage, float full ){
-
+	public int percentage(int percentage, int full ){
+		return (percentage*full)/100;
 	}
 
 
