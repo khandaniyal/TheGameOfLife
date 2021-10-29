@@ -45,27 +45,6 @@ public class GameOfLife extends JFrame{
                 checkNeighbours(tempUnivers);
             }
         });
-
-        this.getRootPane().addComponentListener(new ComponentListener() {
-			@Override
-			public void componentHidden(ComponentEvent arg0) {
-			}
-
-			@Override
-			public void componentMoved(ComponentEvent arg0) {				
-			}
-
-			@Override
-			public void componentResized(ComponentEvent arg0) {
-				//resize
-				System.out.println("moe");
-			}
-
-			@Override
-			public void componentShown(ComponentEvent arg0) {				
-			}
-        });
-        
         
         //Buttons
         JPanel buttons = new JPanel();
@@ -227,7 +206,7 @@ public class GameOfLife extends JFrame{
     }
     //creates the panel
     public void getPanel(){
-        setPreferredSize(new Dimension(510, 600));
+        setPreferredSize(new Dimension(950, 1200));
         setLayout(new BorderLayout());
         //pack();
         univers = new JPanel();
