@@ -1,3 +1,5 @@
+package proyecto;
+
 import javax.swing.*;
 import javax.swing.event.MouseInputAdapter;
 import java.awt.*;
@@ -41,6 +43,7 @@ public class Cells extends JLabel {
         setUniverse(universe);
         setOpaque(true);
         setBorder(BorderFactory.createLineBorder(BORDER, 2));
+        setBackground(BOARD);
     }
     public void mouseListener() { //Method for the mouse input listener
         addMouseListener(new MouseInputAdapter() {
@@ -50,5 +53,5 @@ public class Cells extends JLabel {
             public void mouseEntered(MouseEvent e) { mouseClickedHandler(e); } //This event listens when the mouse is pressed, in this case we want to draw while the mouse is being pressed
         });
     }
+      
 }
-
