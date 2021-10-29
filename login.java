@@ -14,12 +14,13 @@ import java.awt.event.MouseEvent;
 
 public class login {
 	//Attributes
+	public static final Color labelColor  = Color.decode("#ffa424"); //warmOrange
+	public static final Color loginMenuColor  = Color.decode("#2c2c2c");//galaBlack
+	public static final Color loginScreenColor  = Color.decode("#252440");//marine
+
 	private int x;
 	private int y;
-	private Color warmOrange  = Color.decode("#ffa424");
-	private Color galaBlack  = Color.decode("#2c2c2c");
-	private Color marine  = Color.decode("#252440");
-	
+
 	private JFrame frame = new JFrame("Login");
 
 	private JPanel panel0 = new JPanel();
@@ -58,14 +59,14 @@ public class login {
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
 		//JPanel0
 		frame.getContentPane().add(panel0);
-		panel0.setBackground(marine);//#252440
+		panel0.setBackground(loginScreenColor);//#252440
 		panel0.setLayout(null);
 		//JPanel1
 		panel1.setBounds(percentage(70,x), 0, percentage(30,x), y);
 		panel0.add(panel1);
-		panel1.setBackground(galaBlack);//ffa424  #2c2c2c
+		panel1.setBackground(loginMenuColor);//ffa424  #2c2c2c
 		panel1.setLayout(null);
-		//Boxes
+		//JTextFields
 		nameTf.setBounds(percentage(25,panel1.getWidth()), 160, percentage(50,panel1.getWidth()), 20);
 		passwordTf.setBounds(percentage(25,panel1.getWidth()), 260, percentage(50,panel1.getWidth()), 20);
 		passwordTf.setEchoChar('*');//if we don't call this function puts points
@@ -73,16 +74,16 @@ public class login {
 		signInBtn.setBounds(percentage(35,panel1.getWidth()),360,percentage(30,panel1.getWidth()),50);
 		//Labels
 		lblTitle.setBounds(percentage(20, panel1.getWidth()), 60, 400, 50);
-		lblTitle.setForeground(warmOrange);
-		
+		lblTitle.setForeground(labelColor);
+
 		lblName.setBounds(nameTf.getX(), nameTf.getY()-40, 400, 50);
-		lblName.setForeground(warmOrange);
+		lblName.setForeground(labelColor);
 
 		lblPassword.setBounds(passwordTf.getX(), passwordTf.getY()-40, 400, 50);
-		lblPassword.setForeground(warmOrange);
-		
+		lblPassword.setForeground(labelColor);
+
 		lblRegister.setBounds(nameTf.getX(), signInBtn.getY()+50, 400, 50);
-		lblRegister.setForeground(warmOrange);
+		lblRegister.setForeground(labelColor);
 		lblRegister.addMouseListener(new MouseAdapter() {
 				public void mouseClicked(MouseEvent e){
 						formRegisterWindow();
@@ -102,42 +103,11 @@ public class login {
 
 	//Methods
 	public void formRegisterWindow(){
-			final JFrame formWindow = new JFrame("Form");
-			final JPanel formPanel = new JPanel();
-			
-			final JLabel formNameLbl = new JLabel("Name");
-			final JLabel formPasswordLbl = new JLabel("Password");
-			
-			final JTextField formNameTf = new JTextField();
-			final JTextField formPasswordTf = new JTextField();
-			
-			final JButton SignUpBtn = new JButton("Sign Up");
-			formWindow.setSize(percentage(50 ,frame.getWidth()),percentage(50, frame.getHeight()));
-			formWindow.setLocationRelativeTo(null);  
-
-			formPanel.setBackground(galaBlack);
-			formPanel.setLayout(null);
-			//TextFields
-			formNameTf.setBounds(percentage(60, formWindow.getWidth()),
-					percentage(20, formWindow.getHeight()), percentage(30, formWindow.getWidth()),20);
-			formPasswordTf.setBounds(formNameTf.getX(), formNameTf.getY()+70, formNameTf.getWidth(), 20);
-			//Labels
-			formNameLbl.setBounds(formNameTf.getX(), formNameTf.getY()-40,400,50);
-			formNameLbl.setForeground(warmOrange);
-			formPasswordLbl.setBounds(formNameTf.getX(),formPasswordTf.getY()-40,400,50);
-			formPasswordLbl.setForeground(warmOrange);
-			
-			
-			formWindow.add(formPanel);
-			formPanel.add(formNameTf);
-			formPanel.add(formPasswordTf);
-			formPanel.add(formNameLbl);
-			formPanel.add(formPasswordLbl);
-			formWindow.setVisible(true);
+			form formWindow = new form(frame.getWidth(), frame.getHeight());
 	}
 
 	//Returns the correspondent percentage of a number
-	public int percentage(int percentage, int full ){
+	public static int percentage(int percentage, int full ){
 		return (percentage*full)/100;
 	}
 	/////////////////////////////////////
