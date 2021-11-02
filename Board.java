@@ -4,18 +4,21 @@ import java.awt.*;
 public class Board extends JFrame {
 
     private int BOARD_SIZE = 25,
-                      ANIMATION_DELAY = 100;//milliseconds;
+            ANIMATION_DELAY = 100;//milliseconds;
     private final Cells[][] cells;
     private final Cells cell;
     private JPanel universPanel;
     private JPanel panelButton;
-    private int count = 0;
+    private JPanel contadorPanel;
+    private JLabel contador;
+    private int count;
 
     public Board(int BOARD_SIZE) {
         this.BOARD_SIZE = BOARD_SIZE;
         //initialize constants
         universPanel = new JPanel();
         panelButton = new JPanel();
+        contadorPanel = new JPanel();
         cell = new Cells();
         cells = new Cells[BOARD_SIZE][BOARD_SIZE];
         //add a grid
@@ -28,35 +31,53 @@ public class Board extends JFrame {
         JButton start = new JButton("Start");
         JButton stop = new JButton("Stop");
         JButton clear = new JButton("Clear");
-        addAllButtons(start, stop, clear);
+        JButton lessms = new JButton("-");
+        JButton morems = new JButton("+");
+        JTextField msnow = new JTextField(ANIMATION_DELAY + "");
+        addAllButtons(start, stop, clear, lessms, msnow, morems);
+        //Labels
+        contador = new JLabel("Contador: ");
+        addAllLabels(contador);
         //Starts the timer
         start.addActionListener(e ->  timer.start());
         //Stops the timer
         stop.addActionListener(e -> timer.stop());
         //Resets all cells
         clear.addActionListener(e -> resetCells(timer));
+        add(contadorPanel, BorderLayout.NORTH);
         add(universPanel, BorderLayout.CENTER);
         add(panelButton, BorderLayout.SOUTH);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pack();
         setVisible(true);
+        //speed up the timer
+        morems.addActionListener(e-> speedUpMs(timer, msnow, ANIMATION_DELAY));
+        //the timer now
+        msnow.addActionListener(e-> currentMs(timer, msnow));
+        //low speed the timer
+        lessms.addActionListener(e-> speedDownMs(timer, msnow, ANIMATION_DELAY));
     }
     /*Function & Methods*/
     private void animate(){
         for(int i = 0; i < BOARD_SIZE; i++) {
             for(int j = 0; j < BOARD_SIZE; j++) {
+                count = 0;
                 count = cell.countNeighbours(i, j, cells);
                 if(cells[i][j].isUniverse()){
-                    if(count < 2) {
-                        cells[i][j].setUniverse(false);
-                    }else if(count == 3 || count == 2) { //process next if only if previous one was false
-                        cells[i][j].setUniverse(true);
-                    }else if(count > 3) {
+                    if(count < 2){
                         cells[i][j].setUniverse(false);
                     }
-                }else if(count == 3) {
-                    cells[i][j].setUniverse(true);
+                    if(count == 3 || count == 2) { //process next if only if previous one was false
+                        cells[i][j].setUniverse(true);
+                    }
+                    if(count > 3){
+                        cells[i][j].setUniverse(false);
+                    }
+                }else{
+                    if(count == 3) {
+                        cells[i][j].setUniverse(true);
+                    }
                 }
             }
         }
@@ -70,11 +91,18 @@ public class Board extends JFrame {
             }
         }
     }
-    public void addAllButtons(JButton start, JButton stop, JButton clear){
+    public void addAllButtons(JButton start, JButton stop, JButton clear, JButton lessms, JTextField msnow, JButton morems){
         panelButton.setLayout(new GridLayout(0,3));
         panelButton.add(start);
         panelButton.add(stop);
         panelButton.add(clear);
+        panelButton.add(lessms);
+        panelButton.add(msnow);
+        panelButton.add(morems);
+    }
+    public void addAllLabels(JLabel contador){
+        contadorPanel.setLayout(new GridLayout(0,3));
+        contadorPanel.add(contador);
     }
     public void resetCells(Timer timer){
         timer.stop();
@@ -83,5 +111,24 @@ public class Board extends JFrame {
                 cells[i][j].setUniverse(false);
             }
         }
+    }
+    public void speedUpMs(Timer timer, JTextField currentMs, int ANIMATION_DELAY){
+        this.ANIMATION_DELAY=ANIMATION_DELAY+50;
+        currentMs.setText(this.ANIMATION_DELAY + "");
+        timer.setDelay(this.ANIMATION_DELAY);
+    }
+    public void currentMs(Timer timer, JTextField currentMs){
+        String contenido = currentMs.getText();
+        currentMs.setText(contenido);
+        this.ANIMATION_DELAY = Integer.parseInt(contenido);
+        timer.setDelay(this.ANIMATION_DELAY);
+    }
+    public void speedDownMs(Timer timer, JTextField currentMs, int ANIMATION_DELAY){
+        this.ANIMATION_DELAY = ANIMATION_DELAY - 50;
+        if (this.ANIMATION_DELAY <= 0) {
+            this.ANIMATION_DELAY = 0;
+        }
+        currentMs.setText(this.ANIMATION_DELAY + "");
+        timer.setDelay(this.ANIMATION_DELAY);
     }
 }

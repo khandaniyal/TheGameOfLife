@@ -4,7 +4,6 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 
 public class Cells extends JLabel {
-
     private static Color BOARD = Color.BLACK,
             UNIVERSE = Color.GREEN,
             BORDER = Color.GRAY;
@@ -34,7 +33,7 @@ public class Cells extends JLabel {
         if (SwingUtilities.isLeftMouseButton(e)) //Checks if the left mouse button is clicked, in this case we want to paint
             setUniverse(true);
         else
-            if (SwingUtilities.isRightMouseButton(e)) //In the other hand we want to erase the painted cells
+            if (SwingUtilities.isRightMouseButton(e)) //Otherwise we want to erase the painted cells
                 setUniverse(false);
     }
     public void createUnivers() { //Create the universe with the following visual elements
@@ -51,6 +50,7 @@ public class Cells extends JLabel {
             public void mouseEntered(MouseEvent e) { mouseClickedHandler(e); } //This event listens when the mouse is pressed, in this case we want to draw while the mouse is being pressed
         });
     }
+
     public int countNeighbours(int x, int y, Cells[][] cells){
         neighbours = 0;
         for(int i = x - 1; i <= x + 1; i++) {
