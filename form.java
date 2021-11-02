@@ -12,6 +12,8 @@ import java.awt.FlowLayout;
 import java.awt.event.MouseAdapter ;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
+import java.io.File;
+
 import javax.imageio.ImageIO;
 
 public class form extends JFrame {
@@ -25,11 +27,11 @@ public class form extends JFrame {
     private final JPasswordField passwordTf = new JPasswordField();
 
     private  JButton signUpBtn = new JButton("Sign Up");
-
-    private BufferedImage myPicture = ImageIO.read("A image");//<I stayed here
+    
+   // private BufferedImage myPicture = ImageIO.read(new File("formIcon.jpg"));//<I stayed here
 
     //Builder
-    form(int loginWitdth, int loginHeight){
+    form (int loginWitdth, int loginHeight) throws Exception{
       setTitle("Form");
       setSize(login.percentage(50 ,loginWitdth),login.percentage(50, loginHeight));
       setLocationRelativeTo(null);
@@ -46,13 +48,27 @@ public class form extends JFrame {
       nameLbl.setForeground(login.labelColor);
       passwordLbl.setBounds(nameTf.getX(),passwordTf.getY()-40,400,50);
       passwordLbl.setForeground(login.labelColor);
-
+      //Buttons
+      signUpBtn.setBounds(passwordTf.getX()+login.percentage(15, passwordTf.getWidth()) 
+      , passwordTf.getY()+50
+      , login.percentage(70, passwordTf.getWidth()) 
+      , 50);
+      
       add(panel);
       panel.add(nameTf);
       panel.add(passwordTf);
       panel.add(nameLbl);
       panel.add(passwordLbl);
+      panel.add(signUpBtn);
       setVisible(true);
     }
+    //Getters && Setters
+    public String getName() {
+    	return nameTf.getText();
+    }
+    public String getPassword() {
+    	return passwordTf.getPassword().toString();
+    }
+    
 
 }
