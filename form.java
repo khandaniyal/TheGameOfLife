@@ -29,7 +29,15 @@ public class form extends JFrame {
     private  JButton signUpBtn = new JButton("Sign Up");
     
    // private BufferedImage myPicture = ImageIO.read(new File("formIcon.jpg"));//<I stayed here
-
+    
+    //Getters && Setters
+    public String getName() {
+    	return nameTf.getText();
+    }
+    public String getPassword() {
+    	return passwordTf.getPassword().toString();
+    }
+    
     //Builder
     form (int loginWitdth, int loginHeight) throws Exception{
       setTitle("Form");
@@ -53,6 +61,11 @@ public class form extends JFrame {
       , passwordTf.getY()+50
       , login.percentage(70, passwordTf.getWidth()) 
       , 50);
+      signUpBtn.addMouseListener(new MouseAdapter() {
+    	  public void mouseClicked(MouseEvent e){
+				sendData();//Send the credentials 
+			}
+      });
       
       add(panel);
       panel.add(nameTf);
@@ -62,13 +75,14 @@ public class form extends JFrame {
       panel.add(signUpBtn);
       setVisible(true);
     }
-    //Getters && Setters
-    public String getName() {
-    	return nameTf.getText();
-    }
-    public String getPassword() {
-    	return passwordTf.getPassword().toString();
-    }
     
+    public String[] sendData() {
+    	String[] credentials = new String[2];
+    	credentials[0] = getName();
+    	credentials[1] = getPassword();
+    	return credentials;
+    }
+   
+ 
 
 }

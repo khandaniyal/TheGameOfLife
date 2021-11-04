@@ -80,13 +80,7 @@ public class login {
 				, percentage(50,panel1.getWidth())
 				, 20);
 		passwordTf.setEchoChar('*');//if we don't call this function puts points when we write
-		//Buttons_____________________
-		signInBtn.setBackground(Color.decode("#F5F5DC"));
-		signInBtn.setBounds(
-				percentage(35,panel1.getWidth())
-				,360
-				,percentage(30,panel1.getWidth())
-				,50);
+		
 		//Labels_____________________
 		lblTitle.setBounds(
 				percentage(20, panel1.getWidth())
@@ -111,7 +105,7 @@ public class login {
 
 		lblRegister.setBounds(
 				nameTf.getX()
-				, signInBtn.getY()+60
+				, percentage(70,panel1.getHeight())
 				, (int) Math.round(lblRegister.getText().length()*7.22) //130 
 				, 20);
 		System.out.println(lblRegister.getText()+" "+lblRegister.getText().length()*7);
@@ -132,7 +126,32 @@ public class login {
 					lblRegister.setForeground(labelColor);
 				}
 		});
-
+		lblWarning.setBounds(passwordTf.getX(),
+				passwordTf.getY()+30
+				, 200
+				, 20);
+		lblWarning.setForeground(Color.red);
+		lblWarning.setVisible(false);
+		
+		//Buttons_____________________
+				signInBtn.setBackground(Color.decode("#F5F5DC"));
+				signInBtn.setBounds(
+						percentage(35,panel1.getWidth())
+						,360
+						,percentage(30,panel1.getWidth())
+						,50);
+				signInBtn.addMouseListener(new MouseAdapter() {
+					public void mouseClicked(MouseEvent e){
+						if (CheckCredentials() == true) {
+							System.out.println("entraste");
+						}else {
+							lblWarning.setVisible(true);
+						}
+					}
+					
+				});
+		
+		
 		//Add buttons,boxes and labels
 		panel1.add(nameTf);
 		panel1.add(passwordTf);
@@ -141,10 +160,19 @@ public class login {
 		panel1.add(lblTitle);
 		panel1.add(lblName);
 		panel1.add(lblPassword);
+		panel1.add(lblWarning);
 		frame.setVisible(true);
 	}
-
+	
 	//Methods
+	public boolean CheckCredentials () {
+		if (false) {	//Conection Database
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
 	//Call the form window
 	public void formRegisterWindow() throws Exception{
 			form formWindow = new form(frame.getWidth(), frame.getHeight());
