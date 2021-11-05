@@ -9,15 +9,19 @@ import javax.swing.JTextField;
 import javax.swing.BoxLayout;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.event.MouseAdapter ;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 public class login {
 	//Attributes
 	public static final Color labelColor  = Color.decode("#ffa424"); //warmOrange
 	public static final Color loginMenuColor  = Color.decode("#2c2c2c");//galaBlack
 	public static final Color loginScreenColor  = Color.decode("#252440");//marine
-
+	public static final Color buttonsColor  = Color.decode("#F5F5DC");//beige
+	
+	
 	private int x;
 	private int y;
 
@@ -31,12 +35,15 @@ public class login {
 	private JTextField nameTf = new JTextField();
 	private JPasswordField passwordTf = new JPasswordField();
 
-	private JLabel lblTitle = new JLabel(new String("Title"));
+	private JLabel lblTitle = new JLabel(new String("LOGIN"));
 	private JLabel lblName = new JLabel(new String("UserName"));
 	private JLabel lblPassword = new JLabel(new String("Password"));
 	private JLabel lblWarning = new JLabel(new String("Wrong name or Password"));
 	private JLabel lblRegister = new JLabel(new String("I am not registred"));
 	
+	//___________________
+	public static ArrayList <String> users = new ArrayList <String>();
+	public static ArrayList <String> passwords = new ArrayList <String>();
 
 	//Builder
 	public login(){
@@ -49,7 +56,7 @@ public class login {
 		return nameTf.getText();
 	}
 	public String getPassword() {
-		return passwordTf.getPassword().toString();
+		return new String(passwordTf.getPassword().toString());
 	}
 
 	public void buidSignUpPanel() {
@@ -82,6 +89,7 @@ public class login {
 		passwordTf.setEchoChar('*');//if we don't call this function puts points when we write
 		
 		//Labels_____________________
+		lblTitle.setFont(new Font("SansSerif", Font.BOLD, 30));
 		lblTitle.setBounds(
 				percentage(20, panel1.getWidth())
 				, 60
@@ -134,7 +142,7 @@ public class login {
 		lblWarning.setVisible(false);
 		
 		//Buttons_____________________
-				signInBtn.setBackground(Color.decode("#F5F5DC"));
+				signInBtn.setBackground(buttonsColor);
 				signInBtn.setBounds(
 						percentage(35,panel1.getWidth())
 						,360
@@ -177,6 +185,7 @@ public class login {
 	public void formRegisterWindow() throws Exception{
 			form formWindow = new form(frame.getWidth(), frame.getHeight());
 	}
+	
 	
 
 	//Returns the correspondent percentage of a number

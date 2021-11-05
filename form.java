@@ -35,7 +35,7 @@ public class form extends JFrame {
     	return nameTf.getText();
     }
     public String getPassword() {
-    	return passwordTf.getPassword().toString();
+    	return new String(passwordTf.getPassword());
     }
     
     //Builder
@@ -61,9 +61,11 @@ public class form extends JFrame {
       , passwordTf.getY()+50
       , login.percentage(70, passwordTf.getWidth()) 
       , 50);
+      signUpBtn.setBackground(login.buttonsColor);
       signUpBtn.addMouseListener(new MouseAdapter() {
     	  public void mouseClicked(MouseEvent e){
-				sendData();//Send the credentials 
+    		  
+				addUsers();//Send the credentials 
 			}
       });
       
@@ -76,11 +78,15 @@ public class form extends JFrame {
       setVisible(true);
     }
     
-    public String[] sendData() {
-    	String[] credentials = new String[2];
-    	credentials[0] = getName();
-    	credentials[1] = getPassword();
-    	return credentials;
+    public void addUsers() {//Override with database conection
+    	login.users.add(getName());
+    	login.passwords.add(getPassword().toString());
+    	for (String u: login.users) {
+    		System.out.println(u);
+    	}
+    	for (String p: login.passwords) {
+    		System.out.println(p);
+    	}
     }
    
  
