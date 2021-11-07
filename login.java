@@ -1,5 +1,6 @@
 import java.awt.Color;
 
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -12,10 +13,13 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.MouseAdapter ;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class login {
 	//Attributes
+	public static UserDB dataBase;
+	
 	public static final Color labelColor  = Color.decode("#ffa424"); //warmOrange
 	public static final Color loginMenuColor  = Color.decode("#2c2c2c");//galaBlack
 	public static final Color loginScreenColor  = Color.decode("#252440");//marine
@@ -46,7 +50,8 @@ public class login {
 	public static ArrayList <String> passwords = new ArrayList <String>();
 
 	//Builder
-	public login(){
+	public login() throws SQLException{
+		dataBase = new UserDB();
 		buidSignUpPanel();
 	}
 
@@ -193,7 +198,7 @@ public class login {
 		return (percentage*full)/100;
 	}
 	/////////////////////////////////////
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		login jframe = new login();
 
 

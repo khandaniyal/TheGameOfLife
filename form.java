@@ -1,5 +1,6 @@
 import java.awt.Color;
 
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -13,6 +14,7 @@ import java.awt.event.MouseAdapter ;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.sql.SQLException;
 
 import javax.imageio.ImageIO;
 
@@ -39,7 +41,7 @@ public class form extends JFrame {
     }
     
     //Builder
-    form (int loginWitdth, int loginHeight) throws Exception{
+    form (int loginWitdth, int loginHeight) throws SQLException{
       setTitle("Form");
       setSize(login.percentage(50 ,loginWitdth),login.percentage(50, loginHeight));
       setLocationRelativeTo(null);
@@ -65,7 +67,11 @@ public class form extends JFrame {
       signUpBtn.addMouseListener(new MouseAdapter() {
     	  public void mouseClicked(MouseEvent e){
     		  
-				addUsers();//Send the credentials 
+				try {
+					addUsers();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}//Save the credentials on database
 			}
       });
       
@@ -78,7 +84,8 @@ public class form extends JFrame {
       setVisible(true);
     }
     
-    public void addUsers() {//Override with database conection
+    public void addUsers() throws SQLException {//Override with database conection
+    	/*
     	login.users.add(getName());
     	login.passwords.add(getPassword().toString());
     	for (String u: login.users) {
@@ -86,7 +93,10 @@ public class form extends JFrame {
     	}
     	for (String p: login.passwords) {
     		System.out.println(p);
-    	}
+    	}*/
+    	login.dataBase.connectDB();
+    	login.dataBase.insertUser(getName(), getPassword());
+    	login.dataBase.disconnectDB();
     }
    
  
