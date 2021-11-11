@@ -9,13 +9,13 @@ import java.util.ArrayList;
 public class UserDB {
     ////needs a repath to connect
     //private static final String JDBC_CONNECTION = "jdbc:sqlite:" + UserContracts.TABLE_NAME;
-	private static final String JDBC_CONNECTION = "jdbc:sqlite:/home/joaquin/pruebas/tables.db";
+	private static final String JDBC_CONNECTION = "jdbc:sqlite:/home/joaquin_alonsogarcia/Documents/proyecto/tables.db";
 	//table creation query
     private static final String CREATE_TABLE = 
-    		"CREATE TABLE IF NOT EXISTS " + UserContracts.TABLE_NAME +" (" + //Problem here
+    		"CREATE TABLE IF NOT EXISTS " + UserContracts.TABLE_NAME +"(" + //Problem here
     				UserContracts.TABLE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    UserContracts.TABLE_USERNAME + "VARCHAR(20)," +
-                    UserContracts.TABLE_PASSWORD + "VARCHAR(20) "+
+                    UserContracts.TABLE_USERNAME + " VARCHAR(20)," +
+                    UserContracts.TABLE_PASSWORD + " VARCHAR(20) "+
                     
             ");";
     //table delete query
@@ -25,10 +25,11 @@ public class UserDB {
     //builer
     public UserDB() throws SQLException{
     	super();
+    	System.out.println(CREATE_TABLE);
     	connectDB();
     	createTable();
     	disconnectDB();
-    	}
+    }
     //connects to the db
     public void connectDB()throws SQLException{
         if(connection != null) return;
@@ -54,19 +55,20 @@ public class UserDB {
     }
     //reads from the db
     public ArrayList<Users> getAllData()throws SQLException{
+    	
         String query = "Select " + UserContracts.TABLE_ID + ", " +  UserContracts.TABLE_USERNAME + ", " +
                 UserContracts.TABLE_PASSWORD + " from " + UserContracts.TABLE_NAME +
-                "where " + UserContracts.TABLE_USERNAME + " not like 'sqlite%' " +
+                " where " + UserContracts.TABLE_USERNAME + " not like 'sqlite%' " +
                 "order by " + UserContracts.TABLE_USERNAME + ";";
-
+        System.out.println(query);
         ArrayList<Users> users = new ArrayList<>();
         try (Statement st = connection.createStatement()) {
             Users user = new Users();
             ResultSet rs = st.executeQuery(query);
             while (rs.next()) {
-                user.setId(rs.getInt(0));
-                user.setUserName(rs.getString(1));
-                user.setPassword(rs.getString(2));
+                user.setId(rs.getInt(UserContracts.TABLE_ID));
+                user.setUserName(rs.getString(UserContracts.TABLE_USERNAME));
+                user.setPassword(rs.getString(UserContracts.TABLE_PASSWORD));
                 users.add(user);
             }
             rs.close();
@@ -75,16 +77,18 @@ public class UserDB {
     }
     // Add users to the DB
     public boolean insertUser(String userName, String userPassword)throws SQLException{
-        String query = "INSERT INTO "+UserContracts.TABLE_NAME+"("+
-        		UserContracts.TABLE_NAME+", "+UserContracts.TABLE_PASSWORD+")"
+        
+    	String query = "INSERT INTO "+UserContracts.TABLE_NAME+"("+
+        		UserContracts.TABLE_USERNAME+", "+UserContracts.TABLE_PASSWORD+")"
         		+"VALUES ('"+ userName+"'," + "'"+userPassword+"')" ;
-        try (Statement statement = connection.createStatement();){
-        	ResultSet resultSet = statement.executeQuery(query);
-        	String resultado = resultSet.getString(0);
+    	System.out.println(query);
+    	try (Statement statement = connection.createStatement();){
+        	int resultSet = statement.executeUpdate(query);
+        	int resultado = resultSet;
         	System.out.println(resultado);
         	
         }catch(SQLException e) {
-        	System.out.println(e);
+        	System.out.println(e +"Es aquí");
         }
       
         return false; 
@@ -92,9 +96,13 @@ public class UserDB {
     }
     
     
-    public boolean UserExist(ArrayList<Users> userOnTheDB) {
-    	for ( Users users  : userOnTheDB ) {
+    public boolean UserExist(String name, String password) throws SQLException {
+    	ArrayList <Users> listUsersOnDB = getAllData();
+    	for ( Users users  : listUsersOnDB ) {
     		System.out.println(users.getUserName()+" "+users.getPassword() );
+    		if (users.getUserName().equals(name) && users.getPassword().equals(password)) {
+    			return true;
+    		}
     	}
 		return false;
     	
