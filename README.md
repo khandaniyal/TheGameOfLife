@@ -55,12 +55,12 @@ With the help of **``Trello``** we have been assigning each member a role. Not t
 **Things I've done this sprint**
 --
 
-* Two to three refactored version which are still pretty bad.
+* Two to three refactored versions which are still pretty bad.
 * Implemented the backend DB for the Login user credentials.
     - DB connection.
     - Table delete & creation.
     - Get data from the DB.
-* Contributed to the terminal GoL versrion.      
+* Contributed to the terminal GoL version.      
 
 **Link to our Board.**
 --
