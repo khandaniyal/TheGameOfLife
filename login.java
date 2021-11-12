@@ -61,7 +61,7 @@ public class login {
 		return nameTf.getText();
 	}
 	public String getPassword() {
-		return new String(passwordTf.getPassword().toString());
+		return new String(passwordTf.getPassword());
 	}
 
 	public void buidSignUpPanel() {
@@ -155,10 +155,15 @@ public class login {
 						,50);
 				signInBtn.addMouseListener(new MouseAdapter() {
 					public void mouseClicked(MouseEvent e){
-						if (CheckCredentials() == true) {
-							System.out.println("entraste");
-						}else {
-							lblWarning.setVisible(true);
+						try {
+							if (CheckCredentials() == true) {
+								System.out.println("entraste");
+							}else {
+								lblWarning.setVisible(true);
+							}
+						} catch (SQLException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
 						}
 					}
 					
@@ -178,8 +183,8 @@ public class login {
 	}
 	
 	//Methods
-	public boolean CheckCredentials () {
-		if (false) {	//Conection Database
+	public boolean CheckCredentials () throws SQLException {
+		if (dataBase.UserExist(getName(), getPassword())==true) {	//Conection Database
 			return true;
 		}else {
 			return false;

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class UserDB {
     ////needs a repath to connect
     //private static final String JDBC_CONNECTION = "jdbc:sqlite:" + UserContracts.TABLE_NAME;
-	private static final String JDBC_CONNECTION = "jdbc:sqlite:/home/joaquin_alonsogarcia/Documents/proyecto/tables.db";
+	private static final String JDBC_CONNECTION = "jdbc:sqlite:/home/joaquin_alonsogarcia/Documents/TheGameOfLife/tables.db";
 	//table creation query
     private static final String CREATE_TABLE = 
     		"CREATE TABLE IF NOT EXISTS " + UserContracts.TABLE_NAME +"(" + //Problem here
@@ -75,6 +75,7 @@ public class UserDB {
             return users;
         }
     }
+    
     // Add users to the DB
     public boolean insertUser(String userName, String userPassword)throws SQLException{
         
@@ -95,8 +96,16 @@ public class UserDB {
 		
     }
     
-    
+    //Search if on the DB exists an user with the same credentials passed by parameters
     public boolean UserExist(String name, String password) throws SQLException {
+    	String query = String.format("SELECT userName, password from users where userName = '%s' AND password = '%s' ",name ,password );
+    	System.out.println(query);
+    	Statement st = connection.createStatement();
+    	ResultSet rs = st.executeQuery(query); //search rawquery
+    	
+    	
+    	
+    	
     	ArrayList <Users> listUsersOnDB = getAllData();
     	for ( Users users  : listUsersOnDB ) {
     		System.out.println(users.getUserName()+" "+users.getPassword() );
