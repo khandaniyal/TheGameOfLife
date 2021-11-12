@@ -1,13 +1,16 @@
 public class GameOfLifeTerminal {
-    int WIDTH;
-    int HEIGHT;
-    int[][] board;
+    private int WIDTH;
+    private int HEIGHT;
+    private int[][] board;
+    private int aliveNeighbours = 0;
+
 
     public GameOfLifeTerminal(int width, int height) {
         this.WIDTH = width;
         this.HEIGHT = height;
         this.board = new int[width][height];
     }
+
     /*Getters & Setters*/
     public void setAlive(int x, int y) {
         this.board[x][y] = 1;
@@ -15,9 +18,10 @@ public class GameOfLifeTerminal {
 
     public void setDead(int x, int y) {
         this.board[x][y] = 0;
-    }
+    } // currently not being used
+
     /*Methods and functions*/
-    public void printBoard() { //gets the current board
+    public void printBoard() { //prints the board
         for (int y = 0; y < HEIGHT; y++) {
             String line = "";
             for (int x = 0; x < WIDTH; x++) {
@@ -42,6 +46,8 @@ public class GameOfLifeTerminal {
         }
          if(getState(x, y) == 1) count--;
         */
+
+        //checks each position one by one and calls the getState() method to be inside the bounds
         count += getState(x - 1, y - 1);
         count += getState(x, y - 1);
         count += getState(x + 1, y - 1);
@@ -52,14 +58,13 @@ public class GameOfLifeTerminal {
         count += getState(x - 1, y + 1);
         count += getState(x, y + 1);
         count += getState(x + 1, y + 1);
-        
+        //System.out.println(count);
         return count;
     }
 
-    public int getState(int x, int y) {     //get state neighbours in case is out of bounds
+    public int getState(int x, int y) { //get state neighbours in case is out of bounds
         if (x < 0 || x >= WIDTH) return 0;
         if (y < 0 || y >= HEIGHT) return 0;
-
         return this.board[x][y];
     }
 
@@ -68,28 +73,28 @@ public class GameOfLifeTerminal {
         int[][] newBoard = new int[WIDTH][HEIGHT];
         for (int y = 0; y < HEIGHT; y++) {
             for (int x = 0; x < WIDTH; x++) {
-                int aliveNeighbours = countAliveNeighbours(x, y);
+                aliveNeighbours = countAliveNeighbours(x, y);
                 //rules
-                if (getState(x, y) == 1) {
-                    if (aliveNeighbours < 2) {
+                if (getState(x, y) == 1) { //if true
+                    if (aliveNeighbours < 2) { // le ded
                         newBoard[x][y] = 0;
-                    } else if (aliveNeighbours == 2 || aliveNeighbours == 3) {
+                    } else if (aliveNeighbours == 2 || aliveNeighbours == 3) { //alive
                         newBoard[x][y] = 1;
-                    } else if (aliveNeighbours > 3) {
+                    } else if (aliveNeighbours > 3) { // le ded
                         newBoard[x][y] = 0;
                     }
                 } else {
-                    if (aliveNeighbours == 3) {
+                    if (aliveNeighbours == 3) { //create new cells
                         newBoard[x][y] = 1;
                     }
                 }
-
             }
         }
         this.board = newBoard;
+        //System.out.println("Alive cells " + aliveNeighbours);
         printBoard();
     }
-
+    //main method
     public static void main(String[] args) {
         GameOfLifeTerminal simulation = new GameOfLifeTerminal(8, 5);
 
