@@ -52,6 +52,16 @@ We have encountered some issues when interacting with **``Jswing``** and we stil
 
 With the help of **``Trello``** we have been assigning each member a role. Not to mention some of us had some agreements or commitments to do regarding our interaction towards our group members. Somone said to improve his social interacion/skills and try to talk with different members of the team which I am quite suprised beacuse he actually did, so props to him.
 
+**Things I've done this sprint**
+--
+
+* Two to three refactored versions which are still pretty bad.
+* Implemented the backend DB for the Login user credentials.
+    - DB connection.
+    - Table delete & creation.
+    - Get data from the DB.
+* Contributed to the terminal GoL version.      
+
 **Link to our Board.**
 --
 
