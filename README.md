@@ -52,7 +52,11 @@ We have encountered some issues when interacting with **``Jswing``** and we stil
 
 With the help of **``Trello``** we have been assigning each member a role. Not to mention some of us had some agreements or commitments to do regarding our interaction towards our group members. Somone said to improve his social interacion/skills and try to talk with different members of the team which I am quite suprised beacuse he actually did, so props to him.
 
-**Link to our Board.**
+**Things I've done this sprint**
+--
+I have contributed in applying the function of changing the speed of the game, in looking for useful code so that colleagues can implement in the part that they are developing and in the refactoring of the TheGameofLife class with my mate Joaquín.
+
+**Link to our Board**
 --
 
 Our [board](https://trello.com/b/teyv0eQl/the-game-of-life).
