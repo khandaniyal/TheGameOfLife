@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class UserDB {
     ////needs a repath to connect
     //private static final String JDBC_CONNECTION = "jdbc:sqlite:" + UserContracts.TABLE_NAME;
-	private static final String JDBC_CONNECTION = "jdbc:sqlite:/home/joaquin_alonsogarcia/Documents/TheGameOfLife/tables.db";
+	private static final String JDBC_CONNECTION = "jdbc:sqlite:/home/joaquin/Documentos/miRama/TheGameOfLife/tables.db";
 	//table creation query
     private static final String CREATE_TABLE = 
     		"CREATE TABLE IF NOT EXISTS " + UserContracts.TABLE_NAME +"(" + //Problem here
@@ -98,14 +98,36 @@ public class UserDB {
     
     //Search if on the DB exists an user with the same credentials passed by parameters
     public boolean UserExist(String name, String password) throws SQLException {
-    	String query = String.format("SELECT userName, password from users where userName = '%s' AND password = '%s' ",name ,password );
+    	String query = String.format("SELECT count(*) from users where userName = '%s' AND password = '%s' ",name ,password );
     	System.out.println(query);
     	Statement st = connection.createStatement();
-    	ResultSet rs = st.executeQuery(query); //search rawquery
+    	//search rawquery
+    	try(ResultSet rs = st.executeQuery(query)){
+    		System.out.println(rs.getString(1));
+    		if (Integer.parseInt(rs.getString(1))==1) {
+    			return true;
+    		}
+    	}catch (SQLException e) {
+    		System.out.println(e+" Falied to check if the user exists");
+    	}
+		return false;
+    }
+    
+    //Delete all users
+    public void deleteData() {
+    	String query
+    }
+    //Delete some user
+    public void deleteData(int id) {
+    	
+    }
+    
+    //
     	
     	
     	
     	
+    	/*
     	ArrayList <Users> listUsersOnDB = getAllData();
     	for ( Users users  : listUsersOnDB ) {
     		System.out.println(users.getUserName()+" "+users.getPassword() );
@@ -116,6 +138,7 @@ public class UserDB {
 		return false;
     	
     }
+    */
     
     
 }

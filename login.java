@@ -156,7 +156,7 @@ public class login {
 				signInBtn.addMouseListener(new MouseAdapter() {
 					public void mouseClicked(MouseEvent e){
 						try {
-							if (CheckCredentials() == true) {
+							if (dataBase.UserExist(getName(), getPassword()) == true) {
 								System.out.println("entraste");
 							}else {
 								lblWarning.setVisible(true);
@@ -183,19 +183,11 @@ public class login {
 	}
 	
 	//Methods
-	public boolean CheckCredentials () throws SQLException {
-		if (dataBase.UserExist(getName(), getPassword())==true) {	//Conection Database
-			return true;
-		}else {
-			return false;
-		}
-	}
 	
 	//Call the form window
 	public void formRegisterWindow() throws Exception{
 			form formWindow = new form(frame.getWidth(), frame.getHeight());
 	}
-	
 	
 
 	//Returns the correspondent percentage of a number
