@@ -52,6 +52,9 @@ We have encountered some issues when interacting with **``Jswing``** and we stil
 
 With the help of **``Trello``** we have been assigning each member a role. Not to mention some of us had some agreements or commitments to do regarding our interaction towards our group members. Somone said to improve his social interacion/skills and try to talk with different members of the team which I am quite suprised beacuse he actually did, so props to him.
 
+**Things I've done **
+- I implemented alivecells count function which is not workign propperly.
+
 **Link to our Board.**
 --
 
