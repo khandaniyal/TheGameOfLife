@@ -114,14 +114,16 @@ public class UserDB {
     }
     
     //Delete all users
-    public void deleteData() {
-    	String query
+    public void deleteData(String userName) {
+    	String query = String.format("DELETE from users WHERE name '%s'= '%s'", userName, userName);
+   
     }
     //Delete some user
     public void deleteData(int id) {
-    	
+    	 //The users cannot have the same name.
+        //A user only can delete their own account
     }
-    
+   
     //
     	
     	
