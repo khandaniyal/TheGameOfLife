@@ -158,6 +158,7 @@ public class login {
 						try {
 							if (dataBase.UserExist(getName(), getPassword()) == true) {
 								System.out.println("entraste");
+								Board board = new Board(100);
 							}else {
 								lblWarning.setVisible(true);
 							}
