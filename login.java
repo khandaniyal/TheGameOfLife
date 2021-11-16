@@ -1,6 +1,4 @@
 import java.awt.Color;
-
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -158,6 +156,7 @@ public class login {
 						try {
 							if (dataBase.UserExist(getName(), getPassword()) == true) {
 								System.out.println("entraste");
+								Board b = new Board(100);
 							}else {
 								lblWarning.setVisible(true);
 							}

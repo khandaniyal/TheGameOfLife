@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class UserDB {
     ////needs a repath to connect
     //private static final String JDBC_CONNECTION = "jdbc:sqlite:" + UserContracts.TABLE_NAME;
-	private static final String JDBC_CONNECTION = "jdbc:sqlite:/home/joaquin/Documentos/miRama/TheGameOfLife/tables.db";
+	private static final String JDBC_CONNECTION = "jdbc:sqlite:tables.db";
 	//table creation query
     private static final String CREATE_TABLE = 
     		"CREATE TABLE IF NOT EXISTS " + UserContracts.TABLE_NAME +"(" + //Problem here
