@@ -56,3 +56,8 @@ With the help of **``Trello``** we have been assigning each member a role. Not t
 --
 
 Our [board](https://trello.com/b/teyv0eQl/the-game-of-life).
+
+**My job on this spring**
+--
+
+During this sprint I have dedicated myself to the visual part of the login (frontend) and the form. I have also dedicated myself to fixing some database problems and trying to connect it with the login. Finally, I have also dedicated myself with a colleague of mine (Sergio) to try to refactor the visual part of the game. 
