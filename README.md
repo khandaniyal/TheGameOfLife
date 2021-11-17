@@ -54,6 +54,11 @@ We have encountered some issues when interacting with **``Jswing``** and we stil
 
 With the help of **``Trello``** we have been assigning each member a role. Not to mention some of us had some agreements or commitments to do regarding our interaction towards our group members. Somone said to improve his social interacion/skills and try to talk with different members of the team which I am quite suprised beacuse he actually did, so props to him.
 
+**Our last sprint**
+--
+
+Currently we have some flaws in our project and a lot of the features are not done. We had some issues when refactoring our code which was miraculosly running when extending from JLabel and extending from JFrame. We managed to mnake an independent version of this game based in a terminal, therefore this version's rules of the game are working correctly. Also we designed a login interface using JWsing for the frontend and SQLite JDBC for the backend. We had some trouble here and there when working with some of our mates (in terms of effort) but still we have a lot to learn. 
+
 **Link to our Board.**
 --
 
